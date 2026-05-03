@@ -1,0 +1,2 @@
+"""Indian IPO scanner package."""
+

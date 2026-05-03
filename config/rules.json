@@ -1,0 +1,10 @@
+{
+  "max_ipo_age_days": 240,
+  "min_price": 20.0,
+  "min_avg_value_cr": 5.0,
+  "min_rs_percent": 0.0,
+  "min_volume_ratio": 1.2,
+  "min_score": 55,
+  "max_atr_percent": 12.0,
+  "lookback_days": 42
+}
