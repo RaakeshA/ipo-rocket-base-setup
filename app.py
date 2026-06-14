@@ -459,7 +459,12 @@ def main() -> None:
 
     tab_latest, tab_manual = st.tabs(["Latest daily scan", "Manual scan"])
     with tab_latest:
-        render_results(load_latest_scan(file_mtime(LATEST_SCAN_PATH)), "latest", len(universe))
+        latest_results = load_latest_scan(file_mtime(LATEST_SCAN_PATH))
+        if latest_results.empty:
+            st.info("No saved latest scan was found in this deployment. Running a live scan now.")
+            with st.spinner("Fetching Yahoo Finance data and scanning the IPO universe..."):
+                latest_results = run_scan(universe.to_csv(index=False), config)
+        render_results(latest_results, "latest", len(universe))
 
     with tab_manual:
         st.write("Use this when you want to test rule changes before updating the scheduled scan config.")
