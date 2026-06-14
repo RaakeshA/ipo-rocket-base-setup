@@ -1,4 +1,8 @@
 __pycache__/
 *.py[cod]
 .venv/
-outputs/
+outputs/*
+!outputs/scans/
+outputs/scans/*
+!outputs/scans/latest.csv
+!outputs/scans/latest_summary.csv
