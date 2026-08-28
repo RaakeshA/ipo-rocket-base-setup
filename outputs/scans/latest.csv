@@ -1,12 +1,12 @@
 symbol,name,ticker,listing_date,ipo_age_days,scan_date,last_close,ma20,ma50,ma150,avg_value_cr,volume_ratio,return_percent,benchmark_return_percent,effective_lookback_days,rs_percent,atr_percent,distance_from_55d_high_percent,score,setup_notes,passes
-GSPCROP,GSP Crop Science,GSPCROP.NS,2026-03-24,156,2026-08-27,643.15,597.64,510.01,,19.06,0.93,64.76,1.43,42,63.33,3.14,0.0,80,price stacked above 20/50 DMA; outperforming Nifty; liquid enough; volatility acceptable; near 55-day high,False
-PNGSREVA,PNGS Reva,PNGSREVA.NS,2026-03-04,176,2026-08-27,555.65,533.54,457.34,,38.01,0.68,40.83,1.43,42,39.4,7.38,-10.49,70,price stacked above 20/50 DMA; outperforming Nifty; liquid enough; volatility acceptable,False
-SEDEMAC,Sedemac Mechatronics,SEDEMAC.NS,2026-03-11,169,2026-08-27,3065.0,3005.97,2851.84,,51.27,0.76,5.87,1.43,42,4.44,4.53,-6.02,61,price stacked above 20/50 DMA; outperforming Nifty; liquid enough; volatility acceptable; near 55-day high,False
-SHADOWFAX,Shadowfax Technologies,SHADOWFAX.NS,2026-01-28,211,2026-08-27,246.14,248.9,231.84,,260.16,0.66,8.82,1.43,42,7.39,4.65,-7.06,56,price above 50 DMA; outperforming Nifty; liquid enough; volatility acceptable; near 55-day high,False
-AMAGI,Amagi Media Labs,AMAGI.NS,2026-01-21,218,2026-08-27,583.9,623.5,588.45,453.16,94.27,2.79,4.17,1.43,42,2.73,7.1,-13.46,54,price above 150 DMA; outperforming Nifty; volume expansion; liquid enough; volatility acceptable,False
-OMPOWER,Om Power,OMPOWER.NS,2026-04-17,132,2026-08-27,172.84,167.52,172.03,,1.9,0.98,-4.09,1.43,42,-5.53,3.45,-5.77,35,price above 50 DMA; volatility acceptable; near 55-day high,False
-FRACTAL,Fractal Analytics,FRACTAL.NS,2026-02-16,192,2026-08-27,829.55,819.12,852.62,,27.77,1.04,-6.5,1.43,42,-7.93,3.52,-17.54,35,price above 20 DMA; liquid enough; volatility acceptable,False
-CMPDI,Central Mine Planning,CMPDI.NS,2026-03-30,150,2026-08-27,231.79,240.12,249.38,,33.63,0.43,-5.71,1.43,42,-7.15,3.67,-15.77,20,liquid enough; volatility acceptable,False
-CLEANMAX,Clean Max Enviro Energy,CLEANMAX.NS,2026-03-02,178,2026-08-27,1182.3,1280.43,1317.24,,23.68,0.71,-13.43,1.43,42,-14.86,3.87,-20.86,20,liquid enough; volatility acceptable,False
-POWERICA,Powerica,POWERICA.NS,2026-04-02,147,2026-08-27,532.0,536.64,565.5,,10.41,0.47,-13.74,1.43,42,-15.17,4.61,-19.62,20,liquid enough; volatility acceptable,False
-INNOVISION,Innovision,INNOVISION.NS,2026-03-23,157,2026-08-27,254.8,277.29,283.77,,0.58,0.65,-9.53,1.43,42,-10.97,2.92,-14.57,10,volatility acceptable,False
+GSPCROP,GSP Crop Science,GSPCROP.NS,2026-03-24,157,2026-08-28,627.75,599.71,513.67,,19.91,0.97,59.31,0.35,42,58.95,3.49,-2.39,80,price stacked above 20/50 DMA; outperforming Nifty; liquid enough; volatility acceptable; near 55-day high,False
+PNGSREVA,PNGS Reva,PNGSREVA.NS,2026-03-04,177,2026-08-28,542.9,539.04,460.47,,36.3,0.55,37.08,0.35,42,36.72,7.55,-12.54,70,price stacked above 20/50 DMA; outperforming Nifty; liquid enough; volatility acceptable,False
+SEDEMAC,Sedemac Mechatronics,SEDEMAC.NS,2026-03-11,170,2026-08-28,3026.5,3024.85,2857.75,,51.09,0.73,5.86,0.35,42,5.5,4.71,-7.2,63,price stacked above 20/50 DMA; outperforming Nifty; liquid enough; volatility acceptable; near 55-day high,False
+AMAGI,Amagi Media Labs,AMAGI.NS,2026-01-21,219,2026-08-28,578.45,619.5,590.03,454.7,93.52,1.45,7.08,0.35,42,6.73,6.88,-14.27,51,price above 150 DMA; outperforming Nifty; volume expansion; liquid enough; volatility acceptable,False
+SHADOWFAX,Shadowfax Technologies,SHADOWFAX.NS,2026-01-28,212,2026-08-28,238.6,249.82,232.22,,260.68,0.66,1.4,0.35,42,1.05,5.18,-9.91,36,price above 50 DMA; outperforming Nifty; liquid enough; volatility acceptable,False
+FRACTAL,Fractal Analytics,FRACTAL.NS,2026-02-16,193,2026-08-28,840.25,822.54,850.1,,27.22,1.08,-4.02,0.35,42,-4.37,3.47,-16.48,35,price above 20 DMA; liquid enough; volatility acceptable,False
+OMPOWER,Om Power,OMPOWER.NS,2026-04-17,133,2026-08-28,172.27,168.17,171.91,,1.9,0.68,-5.26,0.35,42,-5.62,3.41,-6.08,35,price above 50 DMA; volatility acceptable; near 55-day high,False
+CLEANMAX,Clean Max Enviro Energy,CLEANMAX.NS,2026-03-02,179,2026-08-28,1274.6,1278.71,1315.94,,25.04,0.78,-2.67,0.35,42,-3.02,3.93,-14.69,20,liquid enough; volatility acceptable,False
+CMPDI,Central Mine Planning,CMPDI.NS,2026-03-30,151,2026-08-28,229.97,239.72,249.04,,32.69,0.44,-12.72,0.35,42,-13.08,3.51,-16.43,20,liquid enough; volatility acceptable,False
+POWERICA,Powerica,POWERICA.NS,2026-04-02,148,2026-08-28,519.0,536.36,564.85,,10.44,0.46,-15.75,0.35,42,-16.11,4.51,-21.58,20,liquid enough; volatility acceptable,False
+INNOVISION,Innovision,INNOVISION.NS,2026-03-23,158,2026-08-28,251.4,275.6,282.83,,0.52,0.67,-11.07,0.35,42,-11.43,2.97,-15.71,10,volatility acceptable,False
