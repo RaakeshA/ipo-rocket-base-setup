@@ -4,6 +4,7 @@ import json
 from datetime import date, datetime, timedelta
 from io import StringIO
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import pandas as pd
 import plotly.graph_objects as go
@@ -596,7 +597,9 @@ def main() -> None:
             with st.spinner("Running manual scan with the current sidebar rules..."):
                 st.session_state["manual_scan_results"] = run_scan(universe.to_csv(index=False), config)
                 st.session_state["manual_scan_config"] = current_config
-                st.session_state["manual_scan_time"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                st.session_state["manual_scan_time"] = datetime.now(ZoneInfo("Asia/Kolkata")).strftime(
+                    "%Y-%m-%d %H:%M:%S IST"
+                )
 
         manual_results = st.session_state.get("manual_scan_results")
         if manual_results is None:
