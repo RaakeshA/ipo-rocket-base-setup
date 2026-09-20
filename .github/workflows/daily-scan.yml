@@ -33,7 +33,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f outputs/scans/latest.csv outputs/scans/latest_summary.csv
+          git add -f outputs/scans/latest.csv outputs/scans/latest_summary.csv outputs/scans/watchlist_history.csv
           if git diff --cached --quiet; then
             echo "No scan result changes to commit."
           else

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime
+from datetime import date, datetime, timedelta
 from io import StringIO
 from pathlib import Path
 
@@ -16,6 +16,7 @@ ROOT = Path(__file__).parent
 UNIVERSE_PATH = ROOT / "data" / "ipo_universe.csv"
 RULES_PATH = ROOT / "config" / "rules.json"
 LATEST_SCAN_PATH = ROOT / "outputs" / "scans" / "latest.csv"
+WATCHLIST_HISTORY_PATH = ROOT / "outputs" / "scans" / "watchlist_history.csv"
 
 
 st.set_page_config(page_title="IPO Rocket Base Setup", layout="wide")
@@ -245,6 +246,13 @@ def load_latest_scan(_file_mtime: float) -> pd.DataFrame:
     return pd.read_csv(LATEST_SCAN_PATH)
 
 
+@st.cache_data(show_spinner=False)
+def load_watchlist_history(_file_mtime: float) -> pd.DataFrame:
+    if not WATCHLIST_HISTORY_PATH.exists():
+        return pd.DataFrame()
+    return pd.read_csv(WATCHLIST_HISTORY_PATH)
+
+
 @st.cache_data(show_spinner=True, ttl=900)
 def run_scan(universe_csv: str, config: RuleConfig) -> pd.DataFrame:
     return scan_universe(pd.read_csv(StringIO(universe_csv)), config)
@@ -422,6 +430,117 @@ def render_results(results: pd.DataFrame, result_key: str, universe_count: int |
         },
     )
 
+
+def first_close_on_or_after(history: pd.DataFrame, target_date: date) -> tuple[float | None, str | None]:
+    if history.empty or "Close" not in history:
+        return None, None
+
+    data = history.dropna(subset=["Close"]).copy()
+    if data.empty:
+        return None, None
+
+    dates = pd.DatetimeIndex(pd.to_datetime(data.index))
+    if dates.tz is not None:
+        dates = dates.tz_convert(None)
+    data.index = dates.normalize()
+    eligible = data[data.index >= pd.Timestamp(target_date)]
+    if eligible.empty:
+        return None, None
+
+    return round(float(eligible["Close"].iloc[0]), 2), eligible.index[0].date().isoformat()
+
+
+@st.cache_data(show_spinner=True, ttl=900)
+def calculate_watchlist_performance(history_csv: str) -> pd.DataFrame:
+    history = pd.read_csv(StringIO(history_csv))
+    if history.empty:
+        return pd.DataFrame()
+
+    histories = fetch_history(history["ticker"].dropna().unique().tolist(), period="1y")
+    rows = []
+    for row in history.itertuples(index=False):
+        scan_date = pd.to_datetime(row.scan_date).date()
+        target_date = scan_date + timedelta(days=7)
+        price_history = histories.get(row.ticker, pd.DataFrame())
+        week_price, week_price_date = first_close_on_or_after(price_history, target_date)
+        latest_price, latest_price_date = first_close_on_or_after(price_history, date.today())
+        if latest_price is None and not price_history.empty:
+            latest_price = round(float(price_history["Close"].dropna().iloc[-1]), 2)
+            latest_index = pd.to_datetime(price_history["Close"].dropna().index[-1])
+            latest_price_date = latest_index.date().isoformat()
+
+        entry_close = float(row.entry_close)
+        week_return = None if week_price is None else round((week_price / entry_close - 1) * 100, 2)
+        current_return = None if latest_price is None else round((latest_price / entry_close - 1) * 100, 2)
+
+        rows.append(
+            {
+                "scan_date": row.scan_date,
+                "symbol": row.symbol,
+                "name": row.name,
+                "entry_close": round(entry_close, 2),
+                "score": row.score,
+                "rs_percent": row.rs_percent,
+                "days_since_scan": (date.today() - scan_date).days,
+                "week_price_date": week_price_date,
+                "week_price": week_price,
+                "week_return_percent": week_return,
+                "latest_price_date": latest_price_date,
+                "latest_price": latest_price,
+                "current_return_percent": current_return,
+            }
+        )
+
+    return pd.DataFrame(rows)
+
+
+def render_performance(history: pd.DataFrame) -> None:
+    if history.empty:
+        st.info("No passing-stock history yet. The daily scan will start tracking filtered stocks when candidates pass the setup.")
+        return
+
+    performance = calculate_watchlist_performance(history.to_csv(index=False))
+    if performance.empty:
+        st.info("No performance data available yet.")
+        return
+
+    completed_week = performance.dropna(subset=["week_return_percent"])
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("Tracked picks", len(performance), help="Total historical stocks that passed the setup and were saved for tracking.")
+    c2.metric("7D completed", len(completed_week), help="Tracked picks old enough to have a 7-day comparison price.")
+    c3.metric(
+        "Avg 7D return",
+        "NA" if completed_week.empty else f"{completed_week['week_return_percent'].mean():.2f}%",
+        help="Average return from scan close to the first close on or after seven calendar days.",
+    )
+    c4.metric(
+        "7D win rate",
+        "NA" if completed_week.empty else f"{(completed_week['week_return_percent'] > 0).mean() * 100:.0f}%",
+        help="Share of completed 7-day comparisons with positive return.",
+    )
+
+    st.dataframe(
+        performance,
+        use_container_width=True,
+        hide_index=True,
+        height=430,
+        column_config={
+            "scan_date": st.column_config.TextColumn("Scan date"),
+            "symbol": st.column_config.TextColumn("Symbol"),
+            "name": st.column_config.TextColumn("Company"),
+            "entry_close": st.column_config.NumberColumn("Entry close"),
+            "score": st.column_config.NumberColumn("Score"),
+            "rs_percent": st.column_config.NumberColumn("RS %"),
+            "days_since_scan": st.column_config.NumberColumn("Days"),
+            "week_price_date": st.column_config.TextColumn("7D price date"),
+            "week_price": st.column_config.NumberColumn("7D price"),
+            "week_return_percent": st.column_config.NumberColumn("7D return %"),
+            "latest_price_date": st.column_config.TextColumn("Latest price date"),
+            "latest_price": st.column_config.NumberColumn("Latest price"),
+            "current_return_percent": st.column_config.NumberColumn("Current return %"),
+        },
+    )
+
     selected_symbol = st.selectbox("Chart", results["symbol"].tolist(), key=f"{result_key}_chart_symbol")
     selected_ticker = results.loc[results["symbol"] == selected_symbol, "ticker"].iloc[0]
     render_chart(selected_ticker)
@@ -457,7 +576,7 @@ def main() -> None:
     with st.expander("IPO universe", expanded=False):
         st.dataframe(universe, use_container_width=True, hide_index=True)
 
-    tab_latest, tab_manual = st.tabs(["Latest daily scan", "Manual scan"])
+    tab_latest, tab_manual, tab_performance = st.tabs(["Latest daily scan", "Manual scan", "Performance"])
     with tab_latest:
         latest_results = load_latest_scan(file_mtime(LATEST_SCAN_PATH))
         if latest_results.empty:
@@ -486,6 +605,10 @@ def main() -> None:
             scan_time = st.session_state.get("manual_scan_time", "this session")
             st.caption(f"Manual scan generated at {scan_time}.")
             render_results(manual_results, "manual", len(universe))
+
+    with tab_performance:
+        st.write("Tracks stocks that passed the daily setup and compares their follow-through after one week.")
+        render_performance(load_watchlist_history(file_mtime(WATCHLIST_HISTORY_PATH)))
 
 
 if __name__ == "__main__":

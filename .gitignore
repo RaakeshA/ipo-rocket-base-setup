@@ -6,3 +6,4 @@ outputs/*
 outputs/scans/*
 !outputs/scans/latest.csv
 !outputs/scans/latest_summary.csv
+!outputs/scans/watchlist_history.csv
