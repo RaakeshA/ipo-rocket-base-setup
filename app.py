@@ -430,6 +430,18 @@ def render_results(results: pd.DataFrame, result_key: str, universe_count: int |
         },
     )
 
+    selected_symbol = st.selectbox("Chart", results["symbol"].tolist(), key=f"{result_key}_chart_symbol")
+    selected_ticker = results.loc[results["symbol"] == selected_symbol, "ticker"].iloc[0]
+    render_chart(selected_ticker)
+
+    st.download_button(
+        "Download scan results",
+        data=results.to_csv(index=False),
+        file_name="ipo_rocket_base_setup_scan.csv",
+        mime="text/csv",
+        use_container_width=True,
+    )
+
 
 def first_close_on_or_after(history: pd.DataFrame, target_date: date) -> tuple[float | None, str | None]:
     if history.empty or "Close" not in history:
@@ -540,19 +552,6 @@ def render_performance(history: pd.DataFrame) -> None:
             "current_return_percent": st.column_config.NumberColumn("Current return %"),
         },
     )
-
-    selected_symbol = st.selectbox("Chart", results["symbol"].tolist(), key=f"{result_key}_chart_symbol")
-    selected_ticker = results.loc[results["symbol"] == selected_symbol, "ticker"].iloc[0]
-    render_chart(selected_ticker)
-
-    st.download_button(
-        "Download scan results",
-        data=results.to_csv(index=False),
-        file_name="ipo_rocket_base_setup_scan.csv",
-        mime="text/csv",
-        use_container_width=True,
-    )
-
 
 def main() -> None:
     inject_design()
