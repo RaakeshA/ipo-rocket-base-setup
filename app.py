@@ -347,7 +347,7 @@ def sidebar_config(defaults: RuleConfig) -> RuleConfig:
     )
 
 
-def render_chart(ticker: str) -> None:
+def render_chart(ticker: str, chart_key: str) -> None:
     history = load_chart_history(ticker)
     if history.empty:
         st.info("No chart data available for this ticker.")
@@ -376,7 +376,7 @@ def render_chart(ticker: str) -> None:
         xaxis_rangeslider_visible=False,
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0),
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True, key=chart_key)
 
 
 def render_results(results: pd.DataFrame, result_key: str, universe_count: int | None = None) -> None:
@@ -432,7 +432,7 @@ def render_results(results: pd.DataFrame, result_key: str, universe_count: int |
 
     selected_symbol = st.selectbox("Chart", results["symbol"].tolist(), key=f"{result_key}_chart_symbol")
     selected_ticker = results.loc[results["symbol"] == selected_symbol, "ticker"].iloc[0]
-    render_chart(selected_ticker)
+    render_chart(selected_ticker, f"{result_key}_price_chart")
 
     st.download_button(
         "Download scan results",
@@ -440,6 +440,7 @@ def render_results(results: pd.DataFrame, result_key: str, universe_count: int |
         file_name="ipo_rocket_base_setup_scan.csv",
         mime="text/csv",
         use_container_width=True,
+        key=f"{result_key}_download_scan_results",
     )
 
 
