@@ -1,2 +1,2 @@
 scan_date,stocks_scanned,stocks_passing,output_path
-2026-09-23,10,1,/home/runner/work/ipo-rocket-base-setup/ipo-rocket-base-setup/outputs/scans/ipo_scan_2026-09-23.csv
+2026-09-24,10,2,/home/runner/work/ipo-rocket-base-setup/ipo-rocket-base-setup/outputs/scans/ipo_scan_2026-09-24.csv
