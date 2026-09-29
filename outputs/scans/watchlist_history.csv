@@ -1,4 +1,6 @@
 scan_date,symbol,name,ticker,entry_close,score,rs_percent,volume_ratio,avg_value_cr,atr_percent,ipo_age_days
+2026-09-29,SEDEMAC,Sedemac Mechatronics,SEDEMAC.NS,3485.6,95,34.96,1.96,79.4,4.61,202
+2026-09-29,CLEANMAX,Clean Max Enviro Energy,CLEANMAX.NS,1382.4,91,10.75,3.46,158.87,5.72,211
 2026-09-28,CLEANMAX,Clean Max Enviro Energy,CLEANMAX.NS,1373.1,89,9.38,3.42,148.05,5.64,210
 2026-09-25,SEDEMAC,Sedemac Mechatronics,SEDEMAC.NS,3444.9,92,34.89,1.62,74.24,4.18,198
 2026-09-25,CLEANMAX,Clean Max Enviro Energy,CLEANMAX.NS,1393.4,83,11.29,1.53,50.62,4.86,207
