@@ -1,4 +1,5 @@
 scan_date,symbol,name,ticker,entry_close,score,rs_percent,volume_ratio,avg_value_cr,atr_percent,ipo_age_days
+2026-10-14,PNGSREVA,PNGS Reva,PNGSREVA.NS,672.25,100,24.73,2.99,87.34,6.58,224
 2026-10-13,PNGSREVA,PNGS Reva,PNGSREVA.NS,679.95,100,16.55,2.94,84.51,5.97,223
 2026-10-13,POWERICA,Powerica,POWERICA.NS,592.2,84,12.89,1.25,10.91,4.96,194
 2026-10-13,CLEANMAX,Clean Max Enviro Energy,CLEANMAX.NS,1289.3,62,8.54,3.15,164.84,6.15,225
