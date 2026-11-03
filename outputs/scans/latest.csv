@@ -1,7 +1,7 @@
 symbol,name,ticker,listing_date,ipo_age_days,scan_date,last_close,ma20,ma50,ma150,avg_value_cr,volume_ratio,return_percent,benchmark_return_percent,effective_lookback_days,rs_percent,atr_percent,distance_from_55d_high_percent,score,setup_notes,passes
-SEDEMAC,Sedemac Mechatronics,SEDEMAC.NS,2026-03-11,236,2026-11-02,3119.1,3209.35,3142.32,2603.71,44.87,0.63,0.96,-4.27,42,5.23,3.76,-12.08,37,price above 150 DMA; outperforming Nifty; liquid enough; volatility acceptable,False
-POWERICA,Powerica,POWERICA.NS,2026-04-02,214,2026-11-02,467.15,556.43,548.87,,9.54,1.04,-9.99,-4.27,42,-5.72,6.37,-23.57,20,liquid enough; volatility acceptable,False
-CMPDI,Central Mine Planning,CMPDI.NS,2026-03-30,217,2026-11-02,178.46,196.47,211.37,,20.11,0.73,-22.28,-4.27,42,-18.01,4.82,-27.04,20,liquid enough; volatility acceptable,False
-OMPOWER,Om Power,OMPOWER.NS,2026-04-17,199,2026-11-02,125.72,148.12,160.33,,3.24,1.37,-27.81,-4.27,42,-23.55,7.29,-28.44,20,volume expansion; volatility acceptable,False
-GSPCROP,GSP Crop Science,GSPCROP.NS,2026-03-24,223,2026-11-02,433.05,460.73,512.31,,14.98,1.04,-32.14,-4.27,42,-27.87,3.87,-32.52,20,liquid enough; volatility acceptable,False
-INNOVISION,Innovision,INNOVISION.NS,2026-03-23,224,2026-11-02,231.25,232.34,247.81,285.4,0.47,0.64,-15.68,-4.27,42,-11.41,6.17,-19.87,10,volatility acceptable,False
+SEDEMAC,Sedemac Mechatronics,SEDEMAC.NS,2026-03-11,237,2026-11-03,3207.6,3186.7,3139.68,2626.24,41.24,0.66,11.9,-0.43,42,12.33,3.58,-9.59,73,price stacked above 20/50 DMA; price above 150 DMA; outperforming Nifty; liquid enough; volatility acceptable,False
+INNOVISION,Innovision,INNOVISION.NS,2026-03-23,225,2026-11-03,250.43,232.42,247.27,283.96,0.51,0.71,-3.22,-0.43,42,-2.78,6.67,-11.18,25,price above 50 DMA; volatility acceptable,False
+OMPOWER,Om Power,OMPOWER.NS,2026-04-17,200,2026-11-03,130.36,145.64,158.98,,3.37,1.47,-24.15,-0.43,42,-23.71,7.44,-25.8,21,volume expansion; volatility acceptable,False
+POWERICA,Powerica,POWERICA.NS,2026-04-02,215,2026-11-03,482.95,545.79,546.81,,9.14,1.06,-2.35,-0.43,42,-1.91,5.57,-20.98,20,liquid enough; volatility acceptable,False
+CMPDI,Central Mine Planning,CMPDI.NS,2026-03-30,218,2026-11-03,179.29,194.09,209.2,,17.36,0.78,-19.13,-0.43,42,-18.7,4.84,-26.08,20,liquid enough; volatility acceptable,False
+GSPCROP,GSP Crop Science,GSPCROP.NS,2026-03-24,224,2026-11-03,434.3,458.78,506.13,472.34,14.8,1.03,-30.47,-0.43,42,-30.04,3.84,-32.33,20,liquid enough; volatility acceptable,False
