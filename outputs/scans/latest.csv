@@ -1,6 +1,6 @@
 symbol,name,ticker,listing_date,ipo_age_days,scan_date,last_close,ma20,ma50,ma150,avg_value_cr,volume_ratio,return_percent,benchmark_return_percent,effective_lookback_days,rs_percent,atr_percent,distance_from_55d_high_percent,score,setup_notes,passes
-INNOVISION,Innovision,INNOVISION.NS,2026-03-23,234,2026-11-12,274.59,236.41,248.41,281.43,0.59,0.65,-2.04,7.78,42,-9.82,7.26,-2.04,35,price above 50 DMA; volatility acceptable; near 55-day high,False
-CMPDI,Central Mine Planning,CMPDI.NS,2026-03-30,227,2026-11-12,192.85,188.6,204.43,219.98,18.43,0.74,-16.0,7.78,42,-23.78,4.65,-20.49,35,price above 20 DMA; liquid enough; volatility acceptable,False
-GSPCROP,GSP Crop Science,GSPCROP.NS,2026-03-24,233,2026-11-12,437.95,446.49,487.24,474.77,14.72,0.74,-10.68,7.78,42,-18.46,3.59,-31.76,20,liquid enough; volatility acceptable,False
-POWERICA,Powerica,POWERICA.NS,2026-04-02,224,2026-11-12,475.6,517.06,542.63,531.36,9.23,0.95,-13.07,7.78,42,-20.85,6.09,-22.19,20,liquid enough; volatility acceptable,False
-OMPOWER,Om Power,OMPOWER.NS,2026-04-17,209,2026-11-12,126.53,137.13,155.04,,2.46,0.96,-25.0,7.78,42,-32.78,7.2,-27.98,10,volatility acceptable,False
+INNOVISION,Innovision,INNOVISION.NS,2026-03-23,235,2026-11-13,267.6,238.49,248.87,280.65,0.6,0.69,2.78,7.46,42,-4.68,6.99,-4.53,35,price above 50 DMA; volatility acceptable; near 55-day high,False
+CMPDI,Central Mine Planning,CMPDI.NS,2026-03-30,228,2026-11-13,189.2,186.97,202.87,220.53,19.23,0.7,-11.59,7.46,42,-19.06,4.18,-21.99,35,price above 20 DMA; liquid enough; volatility acceptable,False
+GSPCROP,GSP Crop Science,GSPCROP.NS,2026-03-24,234,2026-11-13,438.7,443.03,479.46,475.44,14.69,0.74,-6.91,7.46,42,-14.37,3.56,-31.64,20,liquid enough; volatility acceptable,False
+POWERICA,Powerica,POWERICA.NS,2026-04-02,225,2026-11-13,471.25,505.28,540.85,532.4,8.76,0.89,-17.23,7.46,42,-24.69,5.23,-22.9,20,liquid enough; volatility acceptable,False
+OMPOWER,Om Power,OMPOWER.NS,2026-04-17,210,2026-11-13,123.66,133.3,153.01,,2.58,1.03,-27.91,7.46,42,-35.37,5.85,-29.61,10,volatility acceptable,False
