@@ -1,6 +1,6 @@
 symbol,name,ticker,listing_date,ipo_age_days,scan_date,last_close,ma20,ma50,ma150,avg_value_cr,volume_ratio,return_percent,benchmark_return_percent,effective_lookback_days,rs_percent,atr_percent,distance_from_55d_high_percent,score,setup_notes,passes
-INNOVISION,Innovision,INNOVISION.NS,2026-03-23,238,2026-11-16,267.6,238.49,248.87,280.65,0.6,0.69,2.78,7.46,42,-4.68,6.99,-4.53,35,price above 50 DMA; volatility acceptable; near 55-day high,False
-CMPDI,Central Mine Planning,CMPDI.NS,2026-03-30,231,2026-11-16,189.2,186.97,202.87,220.53,19.23,0.7,-11.59,7.46,42,-19.06,4.18,-21.99,35,price above 20 DMA; liquid enough; volatility acceptable,False
-GSPCROP,GSP Crop Science,GSPCROP.NS,2026-03-24,237,2026-11-16,438.7,443.03,479.46,475.44,14.69,0.74,-6.91,7.46,42,-14.37,3.56,-31.64,20,liquid enough; volatility acceptable,False
-POWERICA,Powerica,POWERICA.NS,2026-04-02,228,2026-11-16,471.25,505.28,540.85,532.4,8.76,0.89,-17.23,7.46,42,-24.69,5.23,-22.9,20,liquid enough; volatility acceptable,False
-OMPOWER,Om Power,OMPOWER.NS,2026-04-17,213,2026-11-16,123.66,133.3,153.01,,2.58,1.03,-27.91,7.46,42,-35.37,5.85,-29.61,10,volatility acceptable,False
+INNOVISION,Innovision,INNOVISION.NS,2026-03-23,239,2026-11-17,262.71,239.07,248.86,280.28,0.61,0.42,2.88,9.4,42,-6.51,7.42,-6.28,35,price above 50 DMA; volatility acceptable; near 55-day high,False
+CMPDI,Central Mine Planning,CMPDI.NS,2026-03-30,232,2026-11-17,186.9,186.25,202.18,220.75,19.08,0.7,-7.74,9.4,42,-17.14,4.16,-22.94,35,price above 20 DMA; liquid enough; volatility acceptable,False
+GSPCROP,GSP Crop Science,GSPCROP.NS,2026-03-24,238,2026-11-17,427.85,441.02,475.61,475.72,14.58,0.74,-9.42,9.4,42,-18.82,3.67,-33.33,20,liquid enough; volatility acceptable,False
+POWERICA,Powerica,POWERICA.NS,2026-04-02,229,2026-11-17,481.65,499.9,540.24,532.92,8.8,0.88,-9.59,9.4,42,-18.99,5.13,-21.2,20,liquid enough; volatility acceptable,False
+OMPOWER,Om Power,OMPOWER.NS,2026-04-17,214,2026-11-17,125.41,131.32,152.14,,2.29,1.06,-25.44,9.4,42,-34.84,5.57,-28.61,10,volatility acceptable,False
